@@ -1,21 +1,111 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.profile
+  .profile_box
+    %h2 Sign up
+    = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+      = devise_error_messages!
+      .field
+        .question
+          = f.label :name
+        .answer
+          = f.text_field :name, autofocus: true, maxlength: "6"
+      .field
+        .question
+          = f.label :email
+        .answer
+          = f.email_field :email
+      .field
+        .question
+          = f.label :password
+        .answer
+          - if @validatable
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password, autocomplete: "off"
+      .field
+        .question
+          = f.label :password_confirmation
+        .answer
+          = f.password_field :password_confirmation, autocomplete: "off"
+      .field
+        .question
+          お住まいの都道府県
+        .answer
+          = f.text_field :adress, placeholder: "都道府県名"
+          %br/
+      .field
+        .question
+          年代は？
+        .answer
+          = f.text_field :age, placeholder: "都道府県名"
+      .field
+        .question
+          好みの味は？
+        .answer
+          = f.radio_button :likeTast, :"1"
+          %label{:for => "likeTast"} 薄味
+          = f.radio_button :likeTast, :"2"
+          %label{:for => "likeTast"} やや薄味
+          = f.radio_button :likeTast, :"3"
+          %label{:for => "likeTast"} 中間
+          = f.radio_button :likeTast, :"4"
+          %label{:for => "likeTast"} やや濃い味
+          = f.radio_button :likeTast, :"5"
+          %label{:for => "likeTast"} 濃い味
+      .field
+        .question
+          好きな料理の種類は？
+        .answer
+          = f.check_box :washoku
+          %label{:for => "washoku"} 和食
+          = f.check_box :yousyoku
+          %label{:for => "yousyoku"} 洋食
+          = f.check_box :tyuuka
+          %label{:for => "tyuuka"} 中華
+          = f.check_box :ethnic
+          %label{:for => "ethnic"} エスニック
+      .field
+        .question
+          好きな料理は
+        .answer
+          = f.check_box :meat
+          %label{:for => "meat"} 肉料理
+          = f.check_box :fish
+          %label{:for => "fish"} 魚料理
+          = f.check_box :vegetable
+          %label{:for => "vegetable"} 野菜料理
+      .field
+        .question
+          お酒は飲みますか
+        .answer
+          = f.radio_button :Al, :"1"
+          %label{:for => "Al"} 全く飲まない
+          = f.radio_button :Al, :"2"
+          %label{:for => "Al"} 飲む
+          = f.radio_button :Al, :"3"
+          %label{:for => "Al"} 大好き
+      .field
+        .question
+          スィーツは好きですか
+        .answer
+          = f.radio_button :Sw, :"1"
+          %label{:for => "Sw"} 全く食べない
+          = f.radio_button :Sw, :"2"
+          %label{:for => "Sw"} 食べる
+          = f.radio_button :Sw, :"3"
+          %label{:for => "Sw"} 大好き
+      .field
+        .question
+          満足度の基準は？
+        .answer
+          = f.radio_button :cp, :"1"
+          %label{:for => "cp"} コスパ重視
+          = f.radio_button :cp, :"2"
+          %label{:for => "cp"} ややコスパ
+          = f.radio_button :cp,:"3"
+          %label{:for => "cp"} どちらとも言えない
+          = f.radio_button :cp, :"4"
+          %label{:for => "cp"} やや美味しさ
+          = f.radio_button :cp, :"5"
+          %label{:for => "cp"} 美味しさ重視
+      .actions
+        = f.submit "Sign up"

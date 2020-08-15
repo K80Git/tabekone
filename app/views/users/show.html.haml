@@ -1,0 +1,54 @@
+%main
+  .side-bar
+    .review-bar
+      - current_user.reviews.each do |review|
+        .review
+          .review-box
+            .shop-name
+              shop:#{review.shopName.slice(0, 8)}
+            .menu-name
+              menu:#{review.menuName.slice(0, 8)}
+            .satisfaction
+              満足度：#{review.deliciousness}
+              コスパ：#{review.costPerformance}
+              %br/
+              = review.comment.slice(0, 11)
+            .SED_btn
+              = link_to '詳細・編集', edit_review_path(review.id), method: :get
+              = link_to '削除', review_path(review.id), method: :delete
+    .Form
+      .allreview-btn
+        %a{:href => "#"} ALL Review
+      .review-btn
+        %a{:href => "/reviews/new"} ADD Review
+  .contents
+    .recommend
+      %h2 おすすめメニュー
+      .recommend-box
+        - @reviews.each do |review|
+          .group
+            .recommend-box-type
+              グループ名前
+            .recommend-box-name
+              shop: #{review.shopName.slice(0, 9)}
+              %br/
+              menu: #{review.menuName.slice(0, 9)}
+              %br/
+              review: #{review.user.name.slice(0, 9)}
+              %br/
+            .recommend-box-con
+              .satis
+                満足度：#{review.deliciousness} コスパ：#{review.costPerformance}
+                \#{link_to '詳細', review_path(review.id), method: :get}
+    .category
+      %h2 その他のカテゴリー
+      .category_box
+        - @groups.each do |group|
+          %a.category_link{:href => "#"}= group.name
+%footer
+  .footer-box
+    MENU
+    %a{:href => ""} 運営会社について
+    %a{:href => ""} お問い合わせ
+.footer-bar
+  © 2020　KEN180LIC.co. All Right Reserved.

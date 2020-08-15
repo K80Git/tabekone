@@ -1,0 +1,19 @@
+.revTopHeader
+.revTopMain
+  .revTopMain__img
+    = image_tag 'topPhot.png'
+  .revTopMain__container
+    .revTopMain__container--text
+      .revTopMain__container--text--sub
+        メニューでつながる
+      .revTopMain__container--text--icon
+        = image_tag 'icon.png'
+    .revTopMain__container--btn
+      %ul
+        %li.btn_org.right
+          = link_to new_user_session_path do
+            ログイン
+        %li.btn_org.left
+          = link_to new_user_registration_path do
+            新規登録
+.revTopFooter

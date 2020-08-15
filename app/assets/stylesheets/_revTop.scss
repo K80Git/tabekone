@@ -1,0 +1,33 @@
+.revTopHeader{
+  height: 50px;
+  width: 100%;
+  background-color: orange;
+  margin-bottom: 5px;
+}
+.revTopMain{
+  display: flex;
+  &__img{
+    float: left;
+  }
+  &__container{
+    float: left;
+    width: calc(100% - 1024px);
+    text-align: center;
+    &--text{
+      height: 300px;
+      padding-top: 150px;
+      &--sub{
+        font-size: 18px;
+        font-weight: bold;
+        color: orange;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+.revTopFooter{
+  height: 200px;
+  width: 100%;
+  background-color: orange;
+  margin-bottom: 5px;
+}

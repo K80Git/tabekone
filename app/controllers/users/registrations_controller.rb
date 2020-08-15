@@ -1,4 +1,5 @@
-class UsersController < ApplicationController
+class Users::RegistrationsController < Devise::RegistrationsController
+  
   def index
     @users = User.includes(:user).order("created_at DESC")
   end
@@ -8,14 +9,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(user_params)
-
-
-    @group1 = Group.find_by(id: 1)
-    @group2 = Group.find_by(id: 2)
-    @group3 = Group.find_by(id: 3)
-    @group4 = Group.find_by(id: 4)
-    @group5 = Group.find_by(id: 5)
+    @group1 = Group.find_by(id: 7)
+    @group2 = Group.find_by(id: 8)
+    @group3 = Group.find_by(id: 9)
+    @group4 = Group.find_by(id: 10)
+    @group5 = Group.find_by(id: 11)
     if user_params[:likeTast] == "1"
       @group1.users << current_user
       @group1.save
@@ -33,48 +31,48 @@ class UsersController < ApplicationController
       @group5.save
     end
     
-    @group6 = Group.find_by(id: 6)
+    @group6 = Group.find_by(id: 12)
     if user_params[:washoku] == "1"
       @group6.users << current_user
       @group6.save
     end
-    @group7 = Group.find_by(id: 7)
+    @group7 = Group.find_by(id: 13)
     if user_params[:yousyoku] == "1"
       @group7.users << current_user
       @group7.save
     end
-    @group8 = Group.find_by(id: 8)
+    @group8 = Group.find_by(id: 14)
     if user_params[:tyuuka] == "1"
       @group8.users << current_user
       @group8.save
     end
-    @group9 = Group.find_by(id: 9)
+    @group9 = Group.find_by(id: 15)
     if user_params[:ethnic] == "1"
       @group9.users << current_user
       @group9.save
     end
 
-    @group10 = Group.find_by(id: 10)
+    @group10 = Group.find_by(id: 16)
     if user_params[:meat] == "1"
       @group10.users << current_user
       @group10.save
     end
 
-    @group11 = Group.find_by(id: 11)
+    @group11 = Group.find_by(id: 17)
     if user_params[:fish] == "1"
       @group11.users << current_user
       @group11.save
     end
 
-    @group12 = Group.find_by(id: 12)
+    @group12 = Group.find_by(id: 18)
     if user_params[:vegetable] == "1"
       @group12.users << current_user
       @group12.save
     end
 
-    @group13 = Group.find_by(id: 13)
-    @group14 = Group.find_by(id: 14)
-    @group15 = Group.find_by(id: 15)
+    @group13 = Group.find_by(id: 19)
+    @group14 = Group.find_by(id: 20)
+    @group15 = Group.find_by(id: 21)
     if user_params[:Al] == "1"
       @group13.users << current_user
       @group13.save
@@ -86,9 +84,9 @@ class UsersController < ApplicationController
       @group15.save
     end
 
-    @group16 = Group.find_by(id: 16)
-    @group17 = Group.find_by(id: 17)
-    @group18 = Group.find_by(id: 18)
+    @group16 = Group.find_by(id: 22)
+    @group17 = Group.find_by(id: 23)
+    @group18 = Group.find_by(id: 24)
     if user_params[:Sw] == "1"
       @group16.users << current_user
       @group16.save
@@ -100,11 +98,11 @@ class UsersController < ApplicationController
       @group18.save
     end
 
-    @group19 = Group.find_by(id: 19)
-    @group20 = Group.find_by(id: 20)
-    @group21 = Group.find_by(id: 21)
-    @group22 = Group.find_by(id: 22)
-    @group23 = Group.find_by(id: 23)
+    @group19 = Group.find_by(id: 25)
+    @group20 = Group.find_by(id: 26)
+    @group21 = Group.find_by(id: 27)
+    @group22 = Group.find_by(id: 28)
+    @group23 = Group.find_by(id: 29)
     if user_params[:cp] == "1"
       @group19.users << current_user
       @group19.save
@@ -121,31 +119,26 @@ class UsersController < ApplicationController
       @group23.users << current_user
       @group23.save
     end
-
     redirect_to("/")
   end
 
-  def destroy
-    user = User.find(params[:id])
-    user.destroy
-  end
-
+  # GET /resource/edit
   def edit
     @user = User.find(params[:id])
   end
 
   def update
+    @user = Uroup.find(params[:id])
     User.create(user_params)
-
     @groupd = Group.find(params[:id])
     @groupd.destroy
 
 
-    @group1 = Group.find_by(id: 1)
-    @group2 = Group.find_by(id: 2)
-    @group3 = Group.find_by(id: 3)
-    @group4 = Group.find_by(id: 4)
-    @group5 = Group.find_by(id: 5)
+    @group1 = Group.find_by(id: 7)
+    @group2 = Group.find_by(id: 8)
+    @group3 = Group.find_by(id: 9)
+    @group4 = Group.find_by(id: 10)
+    @group5 = Group.find_by(id: 11)
     if user_params[:likeTast] == "1"
       @group1.users << current_user
       @group1.save
@@ -163,48 +156,48 @@ class UsersController < ApplicationController
       @group5.save
     end
     
-    @group6 = Group.find_by(id: 6)
+    @group6 = Group.find_by(id: 12)
     if user_params[:washoku] == "1"
       @group6.users << current_user
       @group6.save
     end
-    @group7 = Group.find_by(id: 7)
+    @group7 = Group.find_by(id: 13)
     if user_params[:yousyoku] == "1"
       @group7.users << current_user
       @group7.save
     end
-    @group8 = Group.find_by(id: 8)
+    @group8 = Group.find_by(id: 14)
     if user_params[:tyuuka] == "1"
       @group8.users << current_user
       @group8.save
     end
-    @group9 = Group.find_by(id: 9)
+    @group9 = Group.find_by(id: 15)
     if user_params[:ethnic] == "1"
       @group9.users << current_user
       @group9.save
     end
 
-    @group10 = Group.find_by(id: 10)
+    @group10 = Group.find_by(id: 16)
     if user_params[:meat] == "1"
       @group10.users << current_user
       @group10.save
     end
 
-    @group11 = Group.find_by(id: 11)
+    @group11 = Group.find_by(id: 17)
     if user_params[:fish] == "1"
       @group11.users << current_user
       @group11.save
     end
 
-    @group12 = Group.find_by(id: 12)
+    @group12 = Group.find_by(id: 18)
     if user_params[:vegetable] == "1"
       @group12.users << current_user
       @group12.save
     end
 
-    @group13 = Group.find_by(id: 13)
-    @group14 = Group.find_by(id: 14)
-    @group15 = Group.find_by(id: 15)
+    @group13 = Group.find_by(id: 19)
+    @group14 = Group.find_by(id: 20)
+    @group15 = Group.find_by(id: 21)
     if user_params[:Al] == "1"
       @group13.users << current_user
       @group13.save
@@ -216,9 +209,9 @@ class UsersController < ApplicationController
       @group15.save
     end
 
-    @group16 = Group.find_by(id: 16)
-    @group17 = Group.find_by(id: 17)
-    @group18 = Group.find_by(id: 18)
+    @group16 = Group.find_by(id: 22)
+    @group17 = Group.find_by(id: 23)
+    @group18 = Group.find_by(id: 24)
     if user_params[:Sw] == "1"
       @group16.users << current_user
       @group16.save
@@ -230,11 +223,11 @@ class UsersController < ApplicationController
       @group18.save
     end
 
-    @group19 = Group.find_by(id: 19)
-    @group20 = Group.find_by(id: 20)
-    @group21 = Group.find_by(id: 21)
-    @group22 = Group.find_by(id: 22)
-    @group23 = Group.find_by(id: 23)
+    @group19 = Group.find_by(id: 25)
+    @group20 = Group.find_by(id: 26)
+    @group21 = Group.find_by(id: 27)
+    @group22 = Group.find_by(id: 28)
+    @group23 = Group.find_by(id: 29)
     if user_params[:cp] == "1"
       @group19.users << current_user
       @group19.save
@@ -251,20 +244,13 @@ class UsersController < ApplicationController
       @group23.users << current_user
       @group23.save
     end
-
+    User.create(user_params)
     redirect_to("/")
-
-  end
-
-  def show
-    @name = current_user.name
-    @reviews = current_user.reviews
-    @user = User.find(params[:id])
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :adress, :age, :sex, :likeTast, :washoku, :yousyoku, :tyuuka, :ethnic, :meat, :fish, :vegetable, :Al, :Sw, :cp)
+    params.require(:user).permit(:name, :address, :age, :sex, :likeTast, :washoku, :yousyoku, :tyuuka, :ethnic, :meat, :fish, :vegetable, :Al, :Sw, :cp)
   end
-
+  
 end

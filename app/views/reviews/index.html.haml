@@ -16,4 +16,7 @@
         %li.btn_org.left
           = link_to new_user_registration_path do
             新規登録
+        %li.btn_org.left
+          = link_to destroy_user_session_path,method: :delete do
+            ログアウト
 .revTopFooter

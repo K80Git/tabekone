@@ -1,0 +1,109 @@
+.mainPage{
+  &__header{
+    height: 40px;
+    width: 100%;
+    background-color: rgb(255, 145, 0);
+    &__box{
+      display: flex;
+      justify-content: space-between;
+      &--logo{
+        padding-left: 30px;
+        padding-top: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+      }
+      &--link{
+        padding-right: 15px;
+        padding-top: 5px;
+      }
+    }
+  }
+  &__contents{
+    height: calc(100vh - 110px);
+    display: flex;
+    justify-content: space-between;
+    &__side{
+      width: 200px;
+      background-color: lightgray;
+      &--box{
+        height: calc(100% - 100px);
+        margin: 8px;
+        &--title{
+          font-weight: bold;
+          font-size: 15px;
+          text-align: center;
+          padding-bottom: 10px;
+        }
+        &--review{
+          &--container{
+            width: 170px;
+            background-color: white;
+            margin-bottom: 10px;
+            padding:5px;
+            border-radius: 5px;
+            &--btn{
+              text-align: center;
+            }
+            a {
+              color: gray;
+            }
+          }
+        }
+      }
+      &--form{
+        height: 100px;
+        padding-top: 20px;
+        padding-left: 30px;
+      }
+    }
+    &__main{
+      width: calc(100vw - 200px);
+      padding: 10px;
+      &--title{
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        height: 20px;
+      }
+      &--contents{
+        width: 100%;
+        height: calc(100% - 220px);
+        &--group{
+          float: left;
+          margin: 10px;
+          padding: 10px;
+          border: 2px solid orange;
+          border-radius: 10px;
+        }
+        &--category{
+          float: none;
+          display: block;
+          height: 200px;
+          &--title{
+            font-size: 20px;
+            font-weight: bold;
+          }
+          &--box{
+
+          }
+        }
+      }
+    }
+  }
+  &__footer{
+    height: 40px;
+    margin:0 auto;
+    background-color: rgb(255, 145, 0);
+    padding-top: 10px;
+    padding-left: 30px;
+  }
+  &__footerber{
+    height: 20px;
+    width: 100%;
+    background-color: rgb(255, 145, 0);
+    color: white;
+    text-align: center;
+    font-size: 14px;
+  }
+}

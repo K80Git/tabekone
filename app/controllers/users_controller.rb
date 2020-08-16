@@ -255,12 +255,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @name = current_user.name
-    @reviews = current_user.reviews
-    @groups = current_user.groups
-    @user = User.find(params[:id])
+    if user_signed_in?
+      @name = current_user.name
+      @reviews = current_user.reviews
+      @groups = current_user.groups
+    else
+      redirect_to reviews_path()
+    end
   end
-
+  
   private
   def user_params
     params.require(:user).permit(:name, :adress, :age, :sex, :likeTast, :washoku, :yousyoku, :tyuuka, :ethnic, :meat, :fish, :vegetable, :Al, :Sw, :cp)

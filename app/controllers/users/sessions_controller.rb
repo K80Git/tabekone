@@ -12,7 +12,9 @@ class Users::SessionsController < Devise::SessionsController
   # def create
   #   super
   # end
-
+  def destroy
+    redirect_to reviews_path()
+  end
   # DELETE /resource/sign_out
   # def destroy
   #   super

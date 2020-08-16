@@ -9,8 +9,6 @@ class UsersController < ApplicationController
 
   def create
     User.create(user_params)
-
-
     @group1 = Group.find_by(id: 1)
     @group2 = Group.find_by(id: 2)
     @group3 = Group.find_by(id: 3)
@@ -259,6 +257,7 @@ class UsersController < ApplicationController
   def show
     @name = current_user.name
     @reviews = current_user.reviews
+    @groups = current_user.groups
     @user = User.find(params[:id])
   end
 

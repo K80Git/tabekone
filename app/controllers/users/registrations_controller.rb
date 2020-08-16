@@ -119,7 +119,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @group23.users << current_user
       @group23.save
     end
-    redirect_to("/")
+    redirect_to user_path(current_user.id)
   end
 
   # GET /resource/edit
@@ -245,7 +245,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @group23.save
     end
     User.create(user_params)
-    redirect_to("/")
+    redirect_to user_path(current_user.id)
   end
 
   private

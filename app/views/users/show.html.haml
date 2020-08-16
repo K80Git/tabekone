@@ -1,7 +1,8 @@
+
 %main
   .side-bar
     .review-bar
-      - current_user.reviews.each do |review|
+      - @reviews.each do |review|
         .review
           .review-box
             .shop-name

@@ -1,0 +1,155 @@
+.addData
+  .addData__header
+    .addData__header__box
+      .addData__header__box--img
+        = image_tag 'icon.w.png'
+      .addData__header__box--text
+        レビュー登録
+  .addData__main
+    .addData__main__box
+      = form_with(model: @review, local: true) do |form|
+        .addData__main__box__field
+          .addData__main__box__field--question
+            お店の名前
+          .addData__main__box__field--answer
+            = form.text_field :shopName, placeholder: "ショップ名"
+        .addData__main__box__field
+          .addData__main__box__field--question
+            料理名
+          .addData__main__box__field--answer
+            = form.text_field :menuName, placeholder: "メニュー名"
+        .addData__main__box__field
+          .addData__main__box__field--question
+            料理の種類
+          .addData__main__box__field--answer
+            = form.text_field :kind, placeholder: "料理の種類"
+        .addData__main__box__field
+          .addData__main__box__field--question  
+            シチュエーション
+          .addData__main__box__field--answer
+            = form.text_field :situation, placeholder: "（例）昼食、夜食、飲み会 など"
+        .addData__main__box__field
+          .addData__main__box__field--question
+            美味しさ
+          .addData__main__box__field--selAnswer
+            = form.radio_button :deliciousness, :"1"
+            %label{:for => "deliciousness"} 美味しくない
+            = form.radio_button :deliciousness, :"2"
+            %label{:for => "deliciousness"} やや美味しくない
+            = form.radio_button :deliciousness, :"3"
+            %label{:for => "deliciousness"} 普通
+            = form.radio_button :deliciousness, :"4"
+            %label{:for => "deliciousness"} やや美味しい
+            = form.radio_button :deliciousness, :"5"
+            %label{:for => "deliciousness"} 美味しい
+        .addData__main__box__field
+          .addData__main__box__field--question
+            コストパフォーマンス
+          .addData__main__box__field--selAnswer
+            = form.radio_button :costPerformance, :"1"
+            %label{:for => "costPerformance"} 低い
+            = form.radio_button :costPerformance, :"2"
+            %label{:for => "costPerformance"} やや低い
+            = form.radio_button :costPerformance, :"3"
+            %label{:for => "costPerformance"} 普通
+            = form.radio_button :costPerformance, :"4"
+            %label{:for => "costPerformance"} やや高い
+            = form.radio_button :costPerformance, :"5"
+            %label{:for => "costPerformance"} 高い
+        .addData__main__box__field
+          .addData__main__box__field--question
+            甘さ・辛さ
+          .addData__main__box__field--selAnswer
+            = form.radio_button :sweetness, :"1"
+            %label{:for => "sweetness"} より甘く
+            = form.radio_button :sweetness, :"2"
+            %label{:for => "sweetness"} 甘く
+            = form.radio_button :sweetness, :"3"
+            %label{:for => "sweetness"} ちょうど良い
+            = form.radio_button :sweetness, :"4"
+            %label{:for => "sweetness"} 辛く
+            = form.radio_button :sweetness, :"5"
+            %label{:for => "sweetness"} より辛く
+        .addData__main__box__field
+          .addData__main__box__field--question
+            濃さ
+          .addData__main__box__field--selAnswer
+            = form.radio_button :strongTaste, :"1"
+            %label{:for => "strongTaste"} より濃く
+            = form.radio_button :strongTaste, :"2"
+            %label{:for => "strongTaste"} やや濃く
+            = form.radio_button :strongTaste, :"3"
+            %label{:for => "strongTaste"} ちょうど良い
+            = form.radio_button :strongTaste, :"4"
+            %label{:for => "strongTaste"} やや薄く
+            = form.radio_button :strongTaste, :"5"
+            %label{:for => "strongTaste"} より薄く
+        .addData__main__box__field
+          .addData__main__box__field--question
+            食感
+          .addData__main__box__field--selAnswer
+            = form.radio_button :Texture, :"1"
+            %label{:for => "Texture"} 良い
+            = form.radio_button :Texture, :"2"
+            %label{:for => "Texture"} 普通
+            = form.radio_button :Texture, :"3"
+            %label{:for => "Texture"} 悪い
+        .addData__main__box__field
+          .addData__main__box__field--question
+            食べやすさ
+          .addData__main__box__field--selAnswer
+            = form.radio_button :EaseOfEating, :"1"
+            %label{:for => "EaseOfEating"} 良い
+            = form.radio_button :EaseOfEating, :"2"
+            %label{:for => "EaseOfEating"} 普通
+            = form.radio_button :EaseOfEating, :"3"
+            %label{:for => "EaseOfEating"} 悪い
+        .addData__main__box__field
+          .addData__main__box__field--question
+            量
+          .addData__main__box__field--selAnswer
+            = form.radio_button :volume, :"1"
+            %label{:for => "volume"} 多い
+            = form.radio_button :volume, :"2"
+            %label{:for => "volume"} 普通
+            = form.radio_button :volume, :"3"
+            %label{:for => "volume"} 少ない
+        .addData__main__box__field
+          .addData__main__box__field--question
+            見た目
+          .addData__main__box__field--selAnswer
+            = form.radio_button :appearance, :"1"
+            %label{:for => "appearance"} 良い
+            = form.radio_button :appearance, :"2"
+            %label{:for => "appearance"} 普通
+            = form.radio_button :appearance, :"3"
+            %label{:for => "appearance"} 悪い
+        .addData__main__box__field
+          .addData__main__box__field--question
+            バランス
+          .addData__main__box__field--selAnswer
+            = form.radio_button :balance, :"1"
+            %label{:for => "balance"} 良い
+            = form.radio_button :balance, :"2"
+            %label{:for => "balance"} 普通
+            = form.radio_button :balance, :"3"
+            %label{:for => "balance"} 悪い
+        .addData__main__box__field
+          .addData__main__box__field--question
+            食い合わせ
+          .addData__main__box__field--selAnswer
+            = form.radio_button :disagreement, :"1"
+            %label{:for => "disagreement"} 良い
+            = form.radio_button :disagreement, :"2"
+            %label{:for => "disagreement"} 普通
+            = form.radio_button :disagreement, :"3"
+            %label{:for => "disagreement"} 悪い
+        .addData__main__box__field
+          .addData__main__box__field--question
+            コメント
+          .addData__main__box__field--answer
+            = form.text_area :comment, placeholder: "コメント"
+        .addData__main__box__sub
+          = form.submit "レビュー登録",  class: 'btn_red'
+
+  .addData__footer

@@ -1,33 +1,42 @@
-
-%main
-  .side-bar
-    .review-bar
-      - @reviews.each do |review|
-        .review
-          .review-box
-            .shop-name
-              shop:#{review.shopName.slice(0, 8)}
-            .menu-name
-              menu:#{review.menuName.slice(0, 8)}
-            .satisfaction
-              満足度：#{review.deliciousness}
-              コスパ：#{review.costPerformance}
-              %br/
-              = review.comment.slice(0, 11)
-            .SED_btn
-              = link_to '詳細・編集', edit_review_path(review.id), method: :get
-              = link_to '削除', review_path(review.id), method: :delete
-    .Form
-      .allreview-btn
-        %a{:href => "#"} ALL Review
-      .review-btn
-        %a{:href => "/reviews/new"} ADD Review
-  .contents
-    .recommend
-      %h2 おすすめメニュー
-      .recommend-box
+.mainPage
+  .mainPage__header
+    .mainPage__header__box
+      .mainPage__header__box--logo
+        メニューでつながる食べコネ　
+      .mainPage__header__box--link
+        .mainPage__header__box--link
+          = link_to destroy_user_session_path,method: :delete do
+            ログアウト
+  .mainPage__contents
+    .mainPage__contents__side
+      .mainPage__contents__side--box
+        .mainPage__contents__side--box--title
+          最近のレビュー
+        .mainPage__contents__side--box--review
+          - @reviews.each do |review|
+            .mainPage__contents__side--box--review--container
+              .mainPage__contents__side--box--review--container--shopName
+                shop: #{review.shopName.slice(0, 8)}
+              .mainPage__contents__side--box--review--container--MenuName
+                menu: #{review.menuName.slice(0, 8)}
+              .mainPage__contents__side--box--review--container-satisfaction
+                満足度：#{review.deliciousness}
+                コスパ：#{review.costPerformance}
+                %br/
+                = review.comment.slice(0, 11)
+              .mainPage__contents__side--box--review--container--btn
+                = link_to '詳細・編集', edit_review_path(review.id), method: :get
+                ／
+                = link_to '削除', review_path(review.id), method: :delete
+      .mainPage__contents__side--form
+        .btn_org
+          = link_to 'レビュー追加', new_review_path()
+    .mainPage__contents__main
+      .mainPage__contents__main--title
+        おすすめメニュー
+      .mainPage__contents__main--contents
         - @reviews.each do |review|
-          .group
+          .mainPage__contents__main--contents--group
             .recommend-box-type
               グループ名前
             .recommend-box-name
@@ -41,15 +50,16 @@
               .satis
                 満足度：#{review.deliciousness} コスパ：#{review.costPerformance}
                 \#{link_to '詳細', review_path(review.id), method: :get}
-    .category
-      %h2 その他のカテゴリー
-      .category_box
-        - @groups.each do |group|
-          %a.category_link{:href => "#"}= group.name
-%footer
-  .footer-box
-    MENU
-    %a{:href => ""} 運営会社について
-    %a{:href => ""} お問い合わせ
-.footer-bar
-  © 2020　KEN180LIC.co. All Right Reserved.
+      .mainPage__contents__main--contents--category
+        .mainPage__contents__main--contents--category--title
+          その他のカテゴリー
+        .mainPage__contents__main--contents--category--box
+          - @groups.each do |group|
+            %a.category_link{:href => "#"}= group.name
+  .mainPage__footer
+    .footer-box
+      MENU
+      %a{:href => ""} 運営会社について
+      %a{:href => ""} お問い合わせ
+  .mainPage__footerber
+    © 2020　KEN180LIC.co. All Right Reserved.

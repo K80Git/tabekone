@@ -1,17 +1,27 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.addDataS
+  .addDataS__header
+    .addDataS__header__box
+      .addDataS__header__box--img
+        = image_tag 'icon.w.png'
+      .addDataS__header__box--text
+        ログイン
+  .addDataS__main
+    .addDataS__main__box
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .addDataS__main__box__field
+          .addDataS__main__box__field--question
+            登録したメールアドレスとパスワードを入力してください。 
+        .addDataS__main__box__field
+          .addDataS__main__box__field--question
+            メールアドレス  
+          .addDataS__main__box__field--answer
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+        .addDataS__main__box__field
+          .addDataS__main__box__field--question
+            パスワード
+          .addDataS__main__box__field--answer
+            = f.password_field :password, autocomplete: "current-password"
+        .addDataS__main__box__sub
+          = f.submit "ログイン",  class: 'btn_red'
+  .addDataS__footer
+

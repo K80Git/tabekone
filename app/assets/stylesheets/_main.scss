@@ -83,6 +83,23 @@
           &--title{
             font-size: 20px;
             font-weight: bold;
+            margin-bottom: 10px;
+          }
+          &--box{
+            &--someone > a{
+              color: orange;
+              margin-left: 20px;
+              margin-bottom: 20px;
+              border: 1px solid orange;
+              padding: 5px 10px;
+              border-radius: 5px;
+              float: left;
+            }
+            &--someone > a:hover{
+              background-color:orange;
+              color:white;
+              opacity: 0.7;
+            }
           }
         }
       }

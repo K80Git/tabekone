@@ -37,8 +37,6 @@
       .mainPage__contents__main--contents
         - @reviews.each do |review|
           .mainPage__contents__main--contents--group
-            .recommend-box-type
-              グループ名前
             .recommend-box-name
               shop: #{review.shopName.slice(0, 9)}
               %br/
@@ -55,7 +53,8 @@
           その他のカテゴリー
         .mainPage__contents__main--contents--category--box
           - @groups.each do |group|
-            %a.category_link{:href => "#"}= group.name
+            .mainPage__contents__main--contents--category--box--someone
+              = link_to "#{group.name}", "#"
   .mainPage__footer
     .footer-box
       MENU

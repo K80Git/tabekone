@@ -258,7 +258,7 @@ class UsersController < ApplicationController
     if user_signed_in?
       @name = current_user.name
       @reviews = current_user.reviews
-      @groups = current_user.groups
+      @groups = Group.all
     else
       redirect_to reviews_path()
     end

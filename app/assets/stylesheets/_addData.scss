@@ -1,0 +1,84 @@
+.addData {
+  background-color: rgb(245, 245, 245);
+  height: auto;
+  &__header{
+    height: 100px;
+    background-color: orange;
+    margin-bottom: 50px;
+    &__box{
+      display: flex;
+      justify-content: center;
+      padding-top: 20px;
+      &--img{
+        height: 80px;
+        width: 80px;
+      }
+      &--img > img{
+        display: inline-block;
+        width: 70%;
+        height: 70%;
+      }
+      &--text{
+        display: inline-block;
+        font-size: 30px;
+        color:white;
+        padding-top: 10px;
+        font-weight: bold;
+      }
+    }
+  }
+  &__main{
+    width: 800px;
+    margin:0 auto;
+    background-color: white;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    &__box {
+      &__field{
+        font-weight: bold;
+        padding: 30px;
+        border-bottom: lightgray solid 1px;
+        &--answer > input{
+          margin-top: 20px;
+          width: 700px;
+          height: 48px;
+          font-weight: normal;
+          border: lightgray solid 1px;
+          border-radius: 5px;
+          padding: 0 16px;
+        }
+        &--answer > textarea{
+          margin-top: 20px;
+          width: 700px;
+          height: 48px;
+          font-weight: normal;
+          border: lightgray solid 1px;
+          border-radius: 5px;
+          padding: 0 16px;
+        }
+        &--selAnswer > input{
+          margin-top: 20px;
+          width: 20px;
+          height: 20px;
+          font-weight: normal;
+          border: lightgray solid 1px;
+          border-radius: 5px;
+          padding: 0 16px;
+        }
+        &--selAnswer > label{
+          margin-right: 20px; 
+        }
+      }
+      &__sub {
+        margin-top: 30px;
+        margin-left: 320px;
+      }  
+    }
+  }
+  &__footer{
+    height: 200px;
+    margin:0 auto;
+    background-color: gray;
+    margin-top: 50px;
+  }
+}

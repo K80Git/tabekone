@@ -4,7 +4,7 @@
       .addData__header__box--img
         = image_tag 'icon.w.png'
       .addData__header__box--text
-        レビュー登録
+        レビュー詳細・編集
   .addData__main
     .addData__main__box
       = form_with(model: @review, local: true) do |form|
@@ -154,7 +154,11 @@
             コメント
           .addData__main__box__field--answer
             = form.text_area :comment, placeholder: "コメント"
-        .addData__main__box__sub
-          = form.submit "レビュー登録",  class: 'btn_red'
+        - if @review.user_id == current_user.id
+          .addData__main__box__sub
+            = form.submit "レビュー更新",  class: 'btn_red'
+        - else
+          .addData__main__box__sub
+            = link_to root_path 'トップページに戻る',  class: 'btn_red'
 
   .addData__footer

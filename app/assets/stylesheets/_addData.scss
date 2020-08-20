@@ -56,6 +56,15 @@
           border-radius: 5px;
           padding: 0 16px;
         }
+        &--answer > select{
+          margin-top: 20px;
+          width: 700px;
+          height: 48px;
+          font-weight: normal;
+          border: lightgray solid 1px;
+          border-radius: 5px;
+          padding: 0 16px;
+        }
         &--selAnswer > input{
           margin-top: 20px;
           width: 20px;

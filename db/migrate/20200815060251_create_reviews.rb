@@ -15,6 +15,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.integer :appearance
       t.integer :balance
       t.integer :disagreement
+      t.integer :group
       t.text :comment
       t.references :user, null:false, foregin_key:true
       t.timestamps

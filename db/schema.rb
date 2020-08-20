@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_15_084545) do
     t.integer "appearance"
     t.integer "balance"
     t.integer "disagreement"
+    t.integer "group"
     t.text "comment"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -60,8 +61,6 @@ ActiveRecord::Schema.define(version: 2020_08_15_084545) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "address"
-    t.integer "age"
     t.integer "likeTast"
     t.integer "washoku"
     t.integer "yousyoku"

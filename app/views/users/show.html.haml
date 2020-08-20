@@ -5,6 +5,7 @@
         メニューでつながる食べコネ　
       .mainPage__header__box--link
         .mainPage__header__box--link
+          #{@name}様 　　
           = link_to destroy_user_session_path,method: :delete do
             ログアウト
   .mainPage__contents
@@ -35,19 +36,31 @@
       .mainPage__contents__main--title
         おすすめメニュー
       .mainPage__contents__main--contents
-        - @reviews.each do |review|
-          .mainPage__contents__main--contents--group
-            .recommend-box-name
-              shop: #{review.shopName.slice(0, 9)}
-              %br/
-              menu: #{review.menuName.slice(0, 9)}
-              %br/
-              review: #{review.user.name.slice(0, 9)}
-              %br/
-            .recommend-box-con
-              .satis
-                満足度：#{review.deliciousness} コスパ：#{review.costPerformance}
-                \#{link_to '詳細', review_path(review.id), method: :get}
+        - @array.each do |array|
+          - @allReview.where(group: array).each do |review|
+            .mainPage__contents__main--contents--group
+              .mainPage__contents__main--contents--group--title
+                = @groupsName[array.to_i - 1]
+                にオススメ
+                %br
+              .mainPage__contents__main--contents--group--rev
+                shop：
+                = review.shopName.slice(0, 8)
+                %br
+                menu：
+                = review.menuName.slice(0, 8)
+                %br
+                満足度：
+                = review.deliciousness
+                コスパ：
+                = review.costPerformance
+                %br
+                = review.comment.slice(0, 11)
+                %br
+                reviewer：
+                = User.find(review.user_id).name
+                %br
+                = link_to '詳細', edit_review_path(review.id), method: :get
       .mainPage__contents__main--contents--category
         .mainPage__contents__main--contents--category--title
           その他のカテゴリー

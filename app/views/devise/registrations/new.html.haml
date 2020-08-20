@@ -35,17 +35,6 @@
             = f.password_field :password_confirmation, autocomplete: "off"
         .addData__main__box__field
           .addData__main__box__field--question
-            お住まいの都道府県
-          .addData__main__box__field--answer
-            = f.text_field :address, placeholder: "都道府県名"
-            %br/
-        .addData__main__box__field
-          .addData__main__box__field--question
-            年代は？
-          .addData__main__box__field--answer
-            = f.text_field :age, placeholder: "年代"
-        .addData__main__box__field
-          .addData__main__box__field--question
             好みの味は？
           .addData__main__box__field--selAnswer
             = f.radio_button :likeTast, :"1"

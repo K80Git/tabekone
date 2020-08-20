@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @group = Group.all
   end
 
   def create
@@ -14,10 +15,12 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     review.destroy
+    redirect_to user_path(current_user.id)
   end
 
   def edit
     @review = Review.find(params[:id])
+    @group = Group.all
   end
 
   def update
@@ -32,7 +35,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:name, :shopName, :menuName, :kind, :situation, :deliciousness, :costPerformance, :sweetness, :strongTaste, :Texture, :EaseOfEating, :volume, :appearance, :balance, :disagreement, :comment).merge(user_id: current_user.id)
+    params.require(:review).permit(:name, :shopName, :menuName, :kind, :situation, :deliciousness, :costPerformance, :sweetness, :strongTaste, :Texture, :EaseOfEating, :volume, :appearance, :balance, :disagreement, :group, :comment).merge(user_id: current_user.id)
   end
 
 end

@@ -38,6 +38,15 @@
         font-weight: bold;
         padding: 30px;
         border-bottom: lightgray solid 1px;
+        &--question{
+          &--group{
+            margin-top: 20px;
+            &--someone {
+              float: left;
+              margin-left: 20px;
+            }
+          }
+        }
         &--answer > input{
           margin-top: 20px;
           width: 700px;
@@ -64,6 +73,21 @@
           border: lightgray solid 1px;
           border-radius: 5px;
           padding: 0 16px;
+        }
+        &--selAnswer{
+          &--check {
+            margin-top: 20px;
+            height: 300px;
+            &--box{
+              margin-top: 10px;
+              width: 230px;
+              font-weight: normal;
+              float: left;
+            }
+            &--box > label {
+              margin-left: 5px;
+            }
+          }
         }
         &--selAnswer > input{
           margin-top: 20px;

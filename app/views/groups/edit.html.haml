@@ -1,0 +1,28 @@
+.addData
+  .addData__header
+    .addData__header__box
+      .addData__header__box--img
+        = image_tag 'icon.w.png'
+      .addData__header__box--text
+        グループ登録
+  .addData__main
+    .addData__main__box
+      = form_with model: @group_user, url: "/groups/#{current_user.id}", method: :patch do |f|
+        .addData__main__box__field
+          .addData__main__box__field--question
+            現在参加しているオススメグループは
+          .addData__main__box__field--question--group
+            - @array.each do |array|
+              .addData__main__box__field--question--group--someone
+                = @groupsName[array.to_i - 1]
+        .addData__main__box__field
+          .addData__main__box__field--question
+            どのオススメに参加しますか？
+          .addData__main__box__field--selAnswer
+            .addData__main__box__field--selAnswer--check
+              = f.collection_check_boxes :group_user_ids, Group.all, :id, :name do |group| 
+                .addData__main__box__field--selAnswer--check--box
+                  = group.label { group.check_box + "　" +group.text } 
+        .addData__main__box__sub
+          = f.submit "登録",  class: 'btn_red'
+  .addData__footer

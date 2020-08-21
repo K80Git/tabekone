@@ -1,36 +1,109 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.addData
+  .addData__header
+    .addData__header__box
+      .addData__header__box--img
+        = image_tag 'icon.w.png'
+      .addData__header__box--text
+        登録内容の変更
+  .addData__main
+    .addData__main__box
+      = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f|
+        = devise_error_messages!
+        .addData__main__box__field
+          .addData__main__box__field--question
+            お名前
+          .addData__main__box__field--answer
+            = f.text_field :name, autofocus: true, maxlength: "6"
+        .addData__main__box__field
+          .addData__main__box__field--question
+            メールアドレス
+          .addData__main__box__field--answer
+            = f.email_field :email
+        .addData__main__box__field
+          .addData__main__box__field--question
+            パスワード
+          .addData__main__box__field--answer
+            - if @validatable
+              %em
+                (#{@minimum_password_length} characters minimum)
+            = f.password_field :password, autocomplete: "off"
+            
+          .addData__main__box__field--question
+            %br
+            もう一度パスワードを入力してください。
+          .addData__main__box__field--answer
+            = f.password_field :password_confirmation, autocomplete: "off"
+        .addData__main__box__field
+          .addData__main__box__field--question
+            好みの味は？
+          .addData__main__box__field--selAnswer
+            = f.radio_button :likeTast, :"1"
+            %label{:for => "likeTast"} 薄味
+            = f.radio_button :likeTast, :"2"
+            %label{:for => "likeTast"} やや薄味
+            = f.radio_button :likeTast, :"3"
+            %label{:for => "likeTast"} 中間
+            = f.radio_button :likeTast, :"4"
+            %label{:for => "likeTast"} やや濃い味
+            = f.radio_button :likeTast, :"5"
+            %label{:for => "likeTast"} 濃い味
+        .addData__main__box__field
+          .addData__main__box__field--question
+            好きな料理の種類は？
+          .addData__main__box__field--selAnswer
+            = f.check_box :washoku
+            %label{:for => "washoku"} 和食
+            = f.check_box :yousyoku
+            %label{:for => "yousyoku"} 洋食
+            = f.check_box :tyuuka
+            %label{:for => "tyuuka"} 中華
+            = f.check_box :ethnic
+            %label{:for => "ethnic"} エスニック
+        .addData__main__box__field
+          .addData__main__box__field--question
+            好きな料理は
+          .addData__main__box__field--selAnswer
+            = f.check_box :meat
+            %label{:for => "meat"} 肉料理
+            = f.check_box :fish
+            %label{:for => "fish"} 魚料理
+            = f.check_box :vegetable
+            %label{:for => "vegetable"} 野菜料理
+        .addData__main__box__field
+          .addData__main__box__field--question
+            お酒は飲みますか
+          .addData__main__box__field--selAnswer
+            = f.radio_button :Al, :"1"
+            %label{:for => "Al"} 全く飲まない
+            = f.radio_button :Al, :"2"
+            %label{:for => "Al"} 飲む
+            = f.radio_button :Al, :"3"
+            %label{:for => "Al"} 大好き
+        .addData__main__box__field
+          .addData__main__box__field--question
+            スィーツは好きですか
+          .addData__main__box__field--selAnswer
+            = f.radio_button :Sw, :"1"
+            %label{:for => "Sw"} 全く食べない
+            = f.radio_button :Sw, :"2"
+            %label{:for => "Sw"} 食べる
+            = f.radio_button :Sw, :"3"
+            %label{:for => "Sw"} 大好き
+        .addData__main__box__field
+          .addData__main__box__field--question
+            満足度の基準は？
+          .addData__main__box__field--selAnswer
+            = f.radio_button :cp, :"1"
+            %label{:for => "cp"} コスパ重視
+            = f.radio_button :cp, :"2"
+            %label{:for => "cp"} ややコスパ
+            = f.radio_button :cp,:"3"
+            %label{:for => "cp"} バランス重視
+            = f.radio_button :cp, :"4"
+            %label{:for => "cp"} やや美味しさ
+            = f.radio_button :cp, :"5"
+            %label{:for => "cp"} 美味しさ重視
+        .addData__main__box__sub
+          = f.submit "更新",  class: 'btn_red'
+
+  .addData__footer

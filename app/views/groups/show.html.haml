@@ -5,11 +5,8 @@
         メニューでつながる食べコネ　
       .mainPage__header__box--link
         .mainPage__header__box--link
-          #{@name}様 　　
-          = link_to edit_group_path(current_user.id) do
-            オススメグループ　　
-          = link_to edit_user_registration_path do
-            プロフィール変更　　
+          #{@name}様
+          = link_to 'マイページ',"/users/#{current_user.id}"
           = link_to destroy_user_session_path,method: :delete do
             ログアウト
   .mainPage__contents
@@ -38,33 +35,29 @@
           = link_to 'レビュー追加', new_review_path()
     .mainPage__contents__main
       .mainPage__contents__main--title
-        おすすめメニュー
+        = @groups.find(params[:id]).name
+        さんにオススメ 一覧
       .mainPage__contents__main--contents
-        - @array.each do |array|
-          - @allReview.where(group: array).each do |review|
-            .mainPage__contents__main--contents--group
-              .mainPage__contents__main--contents--group--title
-                = @groupsName[array.to_i - 1]
-                にオススメ
-                %br
-              .mainPage__contents__main--contents--group--rev
-                shop：
-                = review.shopName.slice(0, 8)
-                %br
-                menu：
-                = review.menuName.slice(0, 8)
-                %br
-                満足度：
-                = review.deliciousness
-                コスパ：
-                = review.costPerformance
-                %br
-                = review.comment.slice(0, 11)
-                %br
-                reviewer：
-                = User.find(review.user_id).name
-                %br
-                = link_to '詳細', edit_review_path(review.id), method: :get
+        - @recoGroupRev.each do |review|
+          .mainPage__contents__main--contents--group
+            .mainPage__contents__main--contents--group--rev
+              shop：
+              = review.shopName.slice(0, 8)
+              %br
+              menu：
+              = review.menuName.slice(0, 8)
+              %br
+              満足度：
+              = review.deliciousness
+              コスパ：
+              = review.costPerformance
+              %br
+              = review.comment.slice(0, 11)
+              %br
+              reviewer：
+              = User.find(review.user_id).name
+              %br
+              = link_to '詳細', edit_review_path(review.id), method: :get
       .mainPage__contents__main--contents--category
         .mainPage__contents__main--contents--category--title
           その他のカテゴリー
@@ -74,6 +67,7 @@
               = link_to "#{group.name}", "/groups/#{group.id}"
   .mainPage__footer
     .footer-box
+      MENU
       %a{:href => ""} 運営会社について
       %a{:href => ""} お問い合わせ
   .mainPage__footerber

@@ -63,9 +63,9 @@ Haml/ Scss/ Ruby/ Ruby on Rails/ AWS/ Git/
 |cp|integer||
 |email|string|null: false,|
 
-has_many :reviews
-has_many :group_users
-has_many :groups, through: :group_users
+has_many :reviews  
+has_many :group_users  
+has_many :groups, through: :group_users  
 
 #### Reviewテーブル
 |Column|Type|Options|
@@ -96,9 +96,9 @@ belongs_to :group
 |------|----|-------|
 |name|string|null:false|
 
-has_many :group_users
-has_many :users, through: :group_users
-has_many :reviews
+has_many :group_users  
+has_many :users, through: :group_users  
+has_many :reviews  
 
 #### GroupUsersテーブル
 |Column|Type|Options|
@@ -106,5 +106,5 @@ has_many :reviews
 |user|references |null:false, foregin_key:true|
 |group|references |null:false, foregin_key:true|
 
-belongs_to :group
-belongs_to :user
+belongs_to :group  
+belongs_to :user  

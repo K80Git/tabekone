@@ -20,8 +20,6 @@ URL:http://3.129.84.46/
 自分にあったお店やメニューに出会えます。
 
 https://drive.google.com/file/d/1CQAK9BEswvCDQdj9JOuZ2CvwENMN0YfP/view?usp=sharing
-### DEMO(gifで動画や写真を貼って、ビューのイメージを掴んでもらいます)
-　⇒特に、デプロイがまだできていない場合はDEMOをつけることで見た目を企業側に伝えることができます。
 
 
 ## 開発にあたって 

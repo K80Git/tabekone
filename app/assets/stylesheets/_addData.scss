@@ -12,11 +12,11 @@
       &--img{
         height: 80px;
         width: 80px;
-      }
-      &--img > img{
-        display: inline-block;
-        width: 70%;
-        height: 70%;
+        img{
+          display: inline-block;
+          width: 70%;
+          height: 70%;
+        }
       }
       &--text{
         display: inline-block;

@@ -1,8 +1,8 @@
 class CreateReviews < ActiveRecord::Migration[6.0]
   def change
     create_table :reviews do |t|
-      t.string :shopName
-      t.string :menuName
+      t.string :shopName, null:false
+      t.string :menuName, null:false
       t.string :kind
       t.string :situation
       t.integer :deliciousness

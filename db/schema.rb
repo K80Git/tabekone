@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2020_08_15_084545) do
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "shopName"
-    t.string "menuName"
+    t.string "shopName", null: false
+    t.string "menuName", null: false
     t.string "kind"
     t.string "situation"
     t.integer "deliciousness"

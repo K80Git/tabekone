@@ -21,14 +21,14 @@
           - @reviews.each do |review|
             .mainPage__contents__side--box--review--container
               .mainPage__contents__side--box--review--container--shopName
-                shop: #{review.shopName.slice(0, 8)}
+                shop: #{review.shopName.slice(0, 7)}
               .mainPage__contents__side--box--review--container--MenuName
-                menu: #{review.menuName.slice(0, 8)}
+                menu: #{review.menuName.slice(0, 7)}
               .mainPage__contents__side--box--review--container-satisfaction
                 満足度：#{review.deliciousness}
                 コスパ：#{review.costPerformance}
                 %br/
-                = review.comment.slice(0, 11)
+                = review.comment.slice(0, 17)
               .mainPage__contents__side--box--review--container--btn
                 = link_to '詳細・編集', edit_review_path(review.id), method: :get
                 ／

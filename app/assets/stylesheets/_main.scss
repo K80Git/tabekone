@@ -71,6 +71,7 @@
       &--contents{
         width: 100%;
         height: calc(100% - 220px);
+        overflow-y: scroll;
         &--group{
           float: left;
           margin: 10px;

@@ -59,10 +59,10 @@
                 コスパ：
                 = review.costPerformance
                 %br
-                = review.comment.slice(0, 15)
+                = review.comment.slice(0, 14)
                 %br
                 reviewer：
-                = User.find(review.user_id).name
+                = User.find(review.user_id).name.slice(0, 8)
                 %br
                 = link_to '詳細', edit_review_path(review.id), method: :get
       .mainPage__contents__main--contents--category

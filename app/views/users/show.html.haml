@@ -49,17 +49,17 @@
                 %br
               .mainPage__contents__main--contents--group--rev
                 shop：
-                = review.shopName.slice(0, 8)
+                = review.shopName.slice(0, 10)
                 %br
                 menu：
-                = review.menuName.slice(0, 8)
+                = review.menuName.slice(0, 10)
                 %br
                 満足度：
                 = review.deliciousness
                 コスパ：
                 = review.costPerformance
                 %br
-                = review.comment.slice(0, 11)
+                = review.comment.slice(0, 13)
                 %br
                 reviewer：
                 = User.find(review.user_id).name
